@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Задание № 1
+        'use srict';
+        let tc = 20;
+        let tf = (9 / 5) * tc + 32;
+        alert(tf);
+        // Задание №2
+        let name = "Василий";
+        let admin = name;
+        console.log(admin);
+       //Задание № 3
+        let task1 = 10 + 10 + "10";
+        console.log(task1);
+        let task2 = 10 + "10" + 10;
+        console.log(task2);
+        let task3 = 10 + 10 + +"10"; 
+        console.log(task3);
+        let task4 = 10 / -"";
+        console.log(task4);
+        let task5 = 10 / +"2,5"; 
+        console.log(task5);
+        /*
+        1.привидение к строке "2010"
+        2.привидение к строке "101010"
+        3.перед строкой "10" стоит унарный плюс,по этому срока становится числом, ответ 30
+        4.перед пустой строкой стоит унарный минус, по этому срока становится числом 0, (10/-0),деление
+        одного числа на отрицательное число дает - Infinity
+        5.в строке ошибка, так как "2,5" написано через запятую,программа выдаст что это не число NaN, 10/NaN, ответ будет NaN
+        */
+    </script>
+</body>
+
+</html>
