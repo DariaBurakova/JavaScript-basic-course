@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict"
+        //es5
+        function Post(author, text, date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+        Post.prototype.edit = function (text) {
+            this.text = text;
+        }
+
+        let commit1 = new Post('Daria', 'wellcome', new Date());
+        commit1.edit("hello");
+        console.log(commit1);
+
+        function AttachedPost(author, text, date) {
+            Post.call(this, author, text, date);
+            this.highlighted = false;
+        }
+        AttachedPost.prototype = Object.create(Post.prototype);
+        AttachedPost.prototype.constructor = AttachedPost;
+
+        AttachedPost.prototype.makeTextHighlighted = function () {
+            this.highlighted = true;
+        }
+
+        let commit2 = new AttachedPost('Alex', 'goodbye', new Date());
+        console.log(commit2);
+        commit2.edit('sorry');
+        commit2.makeTextHighlighted();
+        console.log(commit2);
+
+        //es6
+        class Post {
+            constructor(author, text, date) {
+                this.author = author;
+                this.text = text;
+                this.date = date;
+            }
+            edit(text) {
+                this.text = text;
+            }
+        }
+
+        let commit1 = new Post('Daria', 'wellcome', new Date());
+        commit1.edit("hello");
+        console.log(commit1);
+
+        class AttachedPost extends Post {
+            constructor(author, text, date) {
+                super(author, text, date);
+                this.highlighted = false;
+            }
+            makeTextHighlighted() {
+                this.highlighted = true;
+            }
+        }
+        let commit2 = new AttachedPost('Alex', 'goodbye', new Date());
+        console.log(commit2);
+        commit2.edit('sorry');
+        commit2.makeTextHighlighted();
+        console.log(commit2);
+    </script>
+</body>
+
+</html>
